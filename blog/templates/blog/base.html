@@ -1,0 +1,69 @@
+{% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ancient Traditions</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body class="bg-dark text-light" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="{% url 'blog:index' %}">Ancient Trads</a>
+                <button id="theme-toggle" class="btn me-2 btn-sm btn-ou    tline-light ms-auto">🌙</button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toogle Navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a  class="nav-link" href="{% url 'blog:index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{% url 'blog:contact' %}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blog:about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blog:privacy_policy' %}">Privacy Policy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blog:terms_of_use' %}">Terms of use</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <main class="container my-4">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="text-center text-muted bg-body py-3 border-top bg-white">
+            <small>© {{ year }} Ancient Trad Network - All Rights Reserved</small>
+        </footer>
+        <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Load saved theme or default to light
+    let theme = localStorage.getItem("theme") || "light";
+    body.setAttribute("data-bs-theme", theme);
+    body.classList.toggle("bg-dark", theme === "dark");
+    body.classList.toggle("text-light", theme === "dark");
+    body.classList.toggle("bg-light", theme === "light");
+    body.classList.toggle("text-dark", theme === "light");
+    toggle.textContent = theme === "light" ? "🌙" : "☀️";
+
+    toggle.addEventListener("click", function () {
+        theme = body.getAttribute("data-bs-theme") === "light" ? "dark" : "light";
+        body.setAttribute("data-bs-theme", theme);
+
+        body.classList.toggle("bg-dark", theme === "dark");
+        body.classList.toggle("text-light", theme === "dark");
+        body.classList.toggle("bg-light", theme === "light");
+        body.classList.toggle("text-dark", theme === "light");
+
+        toggle.textContent = theme === "light" ? "🌙" : "☀️";
+
+        localStorage.setItem("theme", theme);
+    });
+});
+        </script>
+    </body>
+</html>

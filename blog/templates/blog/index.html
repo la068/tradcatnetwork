@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Home | Ancient Tredentine{% endblock title %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-2 bg-body g-4">
+    {% for post in posts %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{%url 'blog:view_post' post.id %}" class="text-decoration-none text-primary">{{ post.title }}</a>
+                    </h5>
+                    <p class="text-muted small mb-2">{{ post.date_posted | date:"M d, Y"}}</p>
+                    <p class="card-text">{{ post.content|truncatechars:100 }}</p>
+                    <a href="{% url 'blog:view_post' post.id %}" class="btn btn-outline-primary btn-sm">ReadMore</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No posts yet!</p>
+    {% endfor %}
+</div>
+{% endblock %}

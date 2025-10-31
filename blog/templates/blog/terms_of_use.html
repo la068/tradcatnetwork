@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% block title %}Terms of Use{% endblock title %}
+
+{% block content %}
+<div>
+    {% for data in terms %}
+        <h2>{{ data.title}}</h2>
+        <p>{{ data.content|linebreaksbr }}</p>
+    {% empty %}
+        <p>No terms of use!</p>
+    {% endfor %}
+</div>
+{% endblock content %}

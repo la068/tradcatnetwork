@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block title %}posts{% endblock title %}
+
+{% block content %}
+<article class="bg-white p-4 rounded shadow-sm bg-body">
+    {% if post.image %}
+        <img src="{{ post.image.url}}" class="img-fluid mb-3" alt="{{ post.title}}">
+    {% endif %}
+    <h2 class="fw-bold"> {{ post.title}} </h2>
+    <p class="text-muted small">{{post.date_posted|date:"F d, Y"}}</p>
+    <hr>
+    <div class="lead"> {{ post.content|linebreaks }}</div>
+    <a href="{% url 'blog:index' %}"class="btn btn-secondady mt-3">Back to Home</a>
+</article>
+{% endblock %}
+
