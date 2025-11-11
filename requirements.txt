@@ -155,5 +155,5 @@ django-extensions
 djangorestframework
 django-filter
 cloudinary
-python-cloudinary-storage
+django-cloudinary-storage
 
