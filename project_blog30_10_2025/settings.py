@@ -129,15 +129,13 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATICFILES_DIRS = [
-#    BASE_DIR / 'static',  # your development static files
-#]
-#STATIC_ROOT = BASE_DIR / 'staticfiles'  # where collectstatic will store files
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.C    ompressedManifestStaticFilesStorage'
 
+#crispy files
 CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -147,15 +145,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_URL = '/media/'
-#MEDIA_ROOT= os.path.join(BASE_DIR, "media")
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-import os
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
