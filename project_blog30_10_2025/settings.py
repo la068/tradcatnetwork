@@ -160,7 +160,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": "dic1fmbey",
-    "API_KEY": "333398691771473",
-    "API_SECRET": "rqFNj-yNJoH8TDAwsBYQHZP4miY",
+    "CLOUD_NAME": os.environ.get("dic1fmbey"),
+    "API_KEY": os.environ.get("333398691771473"),
+    "API_SECRET": os.environ.get("rqFNj-yNJoH8TDAwsBYQHZP4miY"),
 }
