@@ -154,3 +154,6 @@ django-cors-headers
 django-extensions
 djangorestframework
 django-filter
+cloudinary
+python-cloudinary-storage
+
