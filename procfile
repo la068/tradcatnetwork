@@ -1,0 +1,1 @@
+web: gunicorn project_blog30_10_2025.wsgi
