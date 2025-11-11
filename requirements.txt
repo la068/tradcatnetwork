@@ -148,3 +148,9 @@ whitenoise==6.11.0
 wsproto==1.2.0
 WTForms==3.2.1
 zstandard==0.25.0
+dj-database-url
+python-dotenv
+django-cors-headers
+django-extensions
+djangorestframework
+django-filter
