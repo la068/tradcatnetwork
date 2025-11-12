@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-s%!v&4ov34^0lsh^3n#vo8bwg3#m1r$7@o-43dsrc0p^c%=htt"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS =["*"] #['tradcatnetwork.herokuapp.com', 'tradcatnetwork.up.railway.app', 'localhost']
 # Application definition
@@ -87,9 +87,28 @@ WSGI_APPLICATION = "project_blog30_10_2025.wsgi.application"
 #        "NAME": BASE_DIR / "db.sqlite3",
 #    }
 #}
+#DATABASES = {
+#        "default": {
+#            "ENGINE": "django.db.backends.postgresql",
+#            "NAME": os.environ["db name"],
+#            "USER": os.environ["db user"],
+#            "PASSWORD": os.environ["db password"],
+#            "HOST": os.environ["db host"],
+#            "PORT": os.environ["db port"],
+#            }
+#        }
+import dj_database_url
+from decouple import config  # optional, if using python-decouple
+
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL', default=''),
+        conn_max_age=600,
+        ssl_require=True,
+    )
 }
+#'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 

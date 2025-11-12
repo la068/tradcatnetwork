@@ -3,7 +3,7 @@
 {% block title %}posts{% endblock title %}
 
 {% block content %}
-<article class="border-0 card shadow-sm">
+<article class="border-0">
     {% if post.image %}
         <img src="{{ post.image.url}}" class="img-fluid mb-3" alt="{{ post.title}}">
     {% endif %}
