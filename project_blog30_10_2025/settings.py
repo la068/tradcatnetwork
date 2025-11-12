@@ -94,12 +94,8 @@ DATABASE_URL = os.environ.get('DATABASE_URL')
 if DATABASE_URL:
     # Use PostgreSQL when DATABASE_URL is set (Render)
     DATABASES = {
-        'default': dj_database_url.config(
-            default=DATABASE_URL,
-            conn_max_age=600,
-            ssl_require=True,
-        )
-    }
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 else:
     # Fallback to SQLite for local development
     DATABASES = {
