@@ -2,7 +2,7 @@
 
 {% block title %}Contact{% endblock title %}
 {% block content %}
-<div class="card p-4 shadow-sm">
+<div class="shadow-sm">
     {% for data in contact %}
         <h2 class="fw-bold mb-3">{{ data.title }}</h2>
         <p>{{ data.content|linebreaksbr}}</p>
