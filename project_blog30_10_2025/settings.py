@@ -87,6 +87,8 @@ WSGI_APPLICATION = "project_blog30_10_2025.wsgi.application"
 #        "NAME": BASE_DIR / "db.sqlite3",
 #    }
 #}
+
+#database postgresql
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
 if DATABASE_URL:
