@@ -97,14 +97,12 @@ WSGI_APPLICATION = "project_blog30_10_2025.wsgi.application"
 #            "PORT": os.environ["db port"],
 #            }
 #        }
-import dj_database_url
-from decouple import config  # optional, if using python-decouple
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL', default=''),
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,
-        ssl_require=True,
+        ssl_require=True
     )
 }
 #'default': dj_database_url.config(default='sqlite:///db.sqlite3')
