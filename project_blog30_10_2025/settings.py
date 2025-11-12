@@ -87,17 +87,6 @@ WSGI_APPLICATION = "project_blog30_10_2025.wsgi.application"
 #        "NAME": BASE_DIR / "db.sqlite3",
 #    }
 #}
-#DATABASES = {
-#        "default": {
-#            "ENGINE": "django.db.backends.postgresql",
-#            "NAME": os.environ["db name"],
-#            "USER": os.environ["db user"],
-#            "PASSWORD": os.environ["db password"],
-#            "HOST": os.environ["db host"],
-#            "PORT": os.environ["db port"],
-#            }
-#        }
-
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
 if DATABASE_URL:
