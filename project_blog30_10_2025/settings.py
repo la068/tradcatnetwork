@@ -98,12 +98,6 @@ WSGI_APPLICATION = "project_blog30_10_2025.wsgi.application"
 #            }
 #        }
 
-import os
-from pathlib import Path
-import dj_database_url
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
 if DATABASE_URL:
